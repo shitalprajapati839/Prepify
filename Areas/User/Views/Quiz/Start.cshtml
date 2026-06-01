@@ -1,0 +1,96 @@
+﻿@* @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<Prepify.Models.Question>
+
+
+
+
+<h2>Quiz</h2>
+
+
+<form action="/User/Quiz/Submit" method="post">
+    @foreach(var q in Model)
+    {
+      <div class="mb-3">
+            <p><strong>@q.Title</strong></p>
+
+            <input type="radio" name="answers[@q.QuestionId]" value="A"  /> @q.OptionA  <br />
+            <input type="radio" name="answers[@q.QuestionId]" value="B" /> @q.OptionB <br />
+            <input type="radio" name="answers[@q.QuestionId]" value="C" /> @q.OptionC <br />
+            <input type="radio" name="answers[@q.QuestionId]" value="D" /> @q.OptionD <br />
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Submit Quiz</button>
+
+</form> *@
+
+@model IEnumerable<Prepify.Models.Question>
+
+@{
+    ViewData["Title"] = "Quiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int i = 1;
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger text-center">
+        @TempData["Error"]
+    </div>
+}
+
+<div class="container" style="position:relative; z-index:1;">
+    <h2 class="text-center mb-4">📝 Quiz</h2>
+
+    <form action="/User/Quiz/Submit" method="post" autocomplete="off">
+
+        @foreach (var q in Model)
+        {
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+
+                    <!-- Question -->
+                    <h6 class="text-muted">Question @i</h6>
+                    <h5>@q.Title</h5>
+
+                    <!-- Options -->
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input"
+                               name="answers[@q.QuestionId]" value="A" />
+                        <label class="form-check-label">@q.OptionA</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input"
+                               name="answers[@q.QuestionId]" value="B" />
+                        <label class="form-check-label">@q.OptionB</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input"
+                               name="answers[@q.QuestionId]" value="C" />
+                        <label class="form-check-label">@q.OptionC</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input"
+                               name="answers[@q.QuestionId]" value="D" />
+                        <label class="form-check-label">@q.OptionD</label>
+                    </div>
+
+                </div>
+            </div>
+
+            i++;
+        }
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success ">
+                🚀 Submit Quiz
+            </button>
+        </div>
+       
+    </form>
+
+</div>

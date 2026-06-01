@@ -1,0 +1,115 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userAnswers = ViewBag.UserAnswers as Dictionary<int, string>;
+
+}
+
+
+
+
+@* <h2>Quiz Result</h2>
+
+
+<p><strong>Score:</strong> @ViewBag.Score / @ViewBag.Total</p>
+
+<hr />
+
+@{
+    var userAnswers = ViewBag.UserAnswers as Dictionary<int, string>;
+}
+
+@foreach (var q in Model)
+{
+    var userAnswer = userAnswers.ContainsKey(q.QuestionId) 
+                     ? userAnswers[q.QuestionId] 
+                     : "";
+
+    bool isCorrect = userAnswer == q.Answer;
+
+    <div class="mb-3 p-3 border @(isCorrect ? "bg-success text-white " : "bg-danger text-red")">
+
+        <p><strong>@q.Title</strong></p>
+
+        <p>
+            Your Answer: <strong>@userAnswer</strong><br />
+            Correct Answer: <strong>@q.Answer</strong>
+        </p>
+
+    </div>
+    } *@
+
+<div class="container" style="position:relative; z-index:1;">
+
+    <!-- Score Card -->
+    <div class="card shadow-lg border-0 rounded-4 text-center mb-2">
+        <div class="card-body">
+
+            <h2 class="fw-bold">🎯 Quiz Result</h2>
+
+            <h3 class="text-primary mt-3">
+                @ViewBag.Score / @ViewBag.Total
+            </h3>
+
+            <p class="text-muted">
+                Great effort! Review your answers below.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Questions Review -->
+    @foreach (var q in Model)
+    {
+        var userAnswer = userAnswers.ContainsKey(q.QuestionId)
+            ? userAnswers[q.QuestionId]
+            : "";
+
+        bool isCorrect = userAnswer == q.Answer;
+
+        <div class="card mb-3 shadow-sm border-0 rounded-4 
+                    @(isCorrect ? "border-success" : "border-danger")">
+
+            <div class="card-body">
+
+                <!-- Question -->
+                <h5 class="fw-semibold">@q.Title</h5>
+
+                <!-- Answers -->
+                <p class="mb-1">
+                    Your Answer:
+                    <span class="fw-bold @(isCorrect ? "text-success" : "text-danger")">
+                        @userAnswer
+                    </span>
+                </p>
+
+                <p>
+                    Correct Answer:
+                    <span class="fw-bold text-success">
+                        @q.Answer
+                    </span>
+                </p>
+
+                <!-- Status -->
+                <span class="badge @(isCorrect ? "bg-success" : "bg-danger")">
+                    @(isCorrect ? "✔ Correct" : "✖ Wrong")
+                </span>
+
+            </div>
+
+        </div>
+    }
+
+    <!-- Buttons -->
+    <div class="text-center mt-4">
+
+        <a href="/User/Quiz/Start" class="btn btn-primary px-4">
+            🔄 Retry Quiz
+        </a>
+
+        <a href="/User/Dashboard" class="btn btn-outline-secondary px-4 ms-2">
+            📊 Dashboard
+        </a>
+
+    </div>
+
+</div>

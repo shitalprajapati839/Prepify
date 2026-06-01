@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model Prepify.Models.Question
+
+@* <h2>Add Question</h2>
+
+<form action="/Admin/Question/Create" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <input type="text" name="Title" placeholder="Question" />
+
+    <input type="text" name="OptionA" placeholder="Option A" />
+    <input type="text" name="OptionB" placeholder="Option B" />
+    <input type="text" name="OptionC" placeholder="Option C" />
+    <input type="text" name="OptionD" placeholder="Option D" />
+
+    <label>Correct Answer</label>
+    <select name="Answer">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+    </select>
+    <div>
+        <label>Category</label>
+
+        <select name="CategoryId" class="form-control">
+
+            <option value="">-- Select Category --</option>  
+            @foreach (var cat in ViewBag.Categories)
+            {
+                <option value="@cat.CategoryId">@cat.CategoryName</option>
+            }
+
+        </select>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-success">Save</button>
+
+</form> *@
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+
+        <div class="card shadow-lg border-0 rounded-4">
+
+            <!-- Header -->
+            <div class="card-header bg-success text-white text-center rounded-top-4">
+                <h4 class="mb-0">➕ Add New Question</h4>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body p-4">
+
+                <form action="/Admin/Question/Create" method="post">
+
+                    @Html.AntiForgeryToken()
+
+                    <!-- Question -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Question</label>
+                        <input type="text" name="Title" class="form-control form-control-lg"
+                               placeholder="Enter question..." />
+                    </div>
+
+                    <!-- Options -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Option A</label>
+                            <input type="text" name="OptionA" class="form-control" />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Option B</label>
+                            <input type="text" name="OptionB" class="form-control" />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Option C</label>
+                            <input type="text" name="OptionC" class="form-control" />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Option D</label>
+                            <input type="text" name="OptionD" class="form-control" />
+                        </div>
+                    </div>
+
+                    <!-- Correct Answer -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Correct Answer</label>
+                        <select name="Answer" class="form-select">
+                            <option value="">-- Select Correct Answer --</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Category</label>
+
+                        <select name="CategoryId" class="form-select">
+                            <option value="">-- Select Category --</option>
+                            @foreach (var cat in ViewBag.Categories)
+                            {
+                                <option value="@cat.CategoryId">@cat.CategoryName</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between">
+
+                        <a href="/Admin/Question/Index" class="btn btn-outline-secondary">
+                            ← Back
+                        </a>
+
+                        <button type="submit" class="btn btn-success px-4">
+                            ✔ Save Question
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model IEnumerable<Prepify.Models.Category>
+
+<h2>Categories</h2>
+
+
+@* <a  href="/Admin/Category/Create" class="btn btn-primary">Add New Category</a> *@
+
+
+@* <table class="table table-hover table-striped shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td>
+                   
+                    <a href="/Admin/Category/Edit/@item.CategoryId" class="btn btn-warning">Edit</a>
+
+                    <a href="/Admin/Category/Delete/@item.CategoryId" class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>     *@
+
+<div class="glass">
+    <h2 class="text-white mb-3">Categories</h2>
+
+    <a href="/Admin/Category/Create" class="btn btn-success mb-3">+ Add Category</a>
+
+    <table class="table table-hover table-bordered bg-white">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CategoryId</td>
+                    <td>@item.CategoryName</td>
+                    <td>
+                        <a href="/Admin/Category/Edit/@item.CategoryId" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/Admin/Category/Delete/@item.CategoryId" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Prepify.Models.Question>
+
+@* <h2>Questions</h2>
+
+<a href="/Admin/Question/Create" class="btn btn-primary">Add Question</a>
+@Html.AntiForgeryToken()
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Answer</th>
+        <th>Category</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Answer</td>
+            <td>@item.Category?.CategoryName</td>
+            <td>
+                <a href="/Admin/Question/Edit/@item.QuestionId">Edit</a>
+                <a href="/Admin/Question/Delete/@item.QuestionId">Delete</a>
+            </td>
+        </tr>
+    }
+</table> *@
+<br />
+<br />
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold">📋 Questions</h2>
+
+    <a href="/Admin/Question/Create" class="btn btn-success">
+        ➕ Add Question
+    </a>
+</div>
+
+<div class="card shadow-sm border-0 rounded-4">
+
+    <div class="card-body p-0">
+
+        <table class="table table-hover table-striped mb-0">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Category</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                @item.Answer
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="badge bg-info text-dark">
+                                @item.Category?.CategoryName
+                            </span>
+                        </td>
+
+                        <td class="text-center">
+
+                            <a href="/Admin/Question/Edit/@item.QuestionId"
+                               class="btn btn-warning btn-sm me-2">
+                                ✏️ Edit
+                            </a>
+
+                            <a href="/Admin/Question/Delete/@item.QuestionId"
+                               class="btn btn-danger btn-sm">
+                                🗑 Delete
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Prepify.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Category</h4>
+<hr />
+@* <div class="row">
+    <div class="col-md-4">
+        <form action="/Admin/Category/Create" method="post">
+
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label >Category Name</label>
+                <input type="text" name="CategoryName" class=" form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <button type="submit" class="btn btn-primary">Create</button>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="/Admin/Category/Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} *@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <div class="card shadow-lg border-0 rounded-4">
+
+            <!-- Header -->
+            <div class="card-header bg-dark text-white text-center rounded-top-4">
+                <h4 class="mb-0">➕ Add New Category</h4>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body p-4">
+
+                <form action="/Admin/Category/Create" method="post">
+
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                    <!-- Input -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Category Name</label>
+                        <input type="text" name="CategoryName" class="form-control form-control-lg" placeholder="Enter category name..." />
+                        <span asp-validation-for="CategoryName" class="text-danger"></span>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between">
+
+                        <a href="/Admin/Category/Index" class="btn btn-outline-secondary">
+                            ← Back
+                        </a>
+
+                        <button type="submit" class="btn btn-success px-4">
+                            ✔ Create
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

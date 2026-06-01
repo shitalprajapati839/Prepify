@@ -1,0 +1,86 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- HERO SECTION -->
+<div class="container mt-5">
+
+    <div class="row align-items-center">
+
+        <div class="col-md-6">
+
+            <h1 class="fw-bold">
+                Smart Prep for Smart Careers 🚀
+            </h1>
+
+            <p class="mt-3 text-muted">
+                Practice interview questions, take quizzes, and track your performance—all in one place.
+            </p>
+
+            <a href="/User/Quiz/Start" class="btn btn-primary mt-3 px-4">
+                Start Quiz
+            </a>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+
+            <img src="/images/logo.png"
+                 class="img-fluid"
+                 style="max-height: 400px;" />
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FEATURES SECTION -->
+<div class="container mt-5">
+
+    <div class="row text-center">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4 border-0">
+                <h4>📚 Practice Questions</h4>
+                <p class="text-muted">Explore technical & HR questions</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4 border-0">
+                <h4>📝 Take Quiz</h4>
+                <p class="text-muted">Test your knowledge instantly</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4 border-0">
+                <h4>📊 Track Progress</h4>
+                <p class="text-muted">Monitor your performance</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CALL TO ACTION -->
+<div class="container text-center mt-5 mb-5">
+
+    <h3 class="fw-semibold">Ready to boost your interview skills?</h3>
+
+    <a href="/User/Quiz/Start" class="btn btn-success mt-3 px-5">
+        Get Started
+    </a>
+
+</div>
